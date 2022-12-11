@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Game from './game';
+import './App.css';
 
-function App() {
+function App(Game) {
   // Initialize state variables
   const [currentChapter, setCurrentChapter] = useState('intro');
   const [player, setPlayer] = useState({
@@ -72,11 +74,11 @@ function App() {
           Your current health: {player.health}
         <br />
           What do you do next?
-        <button onClick={() => handleChoice('attack')}>Attack the enemy again</button>
-<button onClick={() => handleChoice('defend')}>Defend against the enemy's next attack</button>
-<button onClick={() => handleChoice('use item')}>Use an item from your inventory</button>
-</p>
-</div>
+          <button onClick={() => handleChoice('attack')}>Attack the enemy again</button>
+          <button onClick={() => handleChoice('defend')}>Defend against the enemy's next attack</button>
+          <button onClick={() => handleChoice('use item')}>Use an item from your inventory</button>
+        </p>
+      </div>
 );
 } else if (currentChapter === 'forest after defend') {
 return (

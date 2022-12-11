@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Game = () => {
+const Game = (props) => {
   const [story, setStory] = useState("");
   const [decision, setDecision] = useState("");
 
