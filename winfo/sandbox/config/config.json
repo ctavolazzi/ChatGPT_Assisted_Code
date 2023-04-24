@@ -1,0 +1,6 @@
+{
+  "module_dir": "Modules",
+  "log_dir": "Logs",
+  "log_file": "app.log",
+  "openai_key": "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"
+}

@@ -1,0 +1,8 @@
+beautifulsoup4
+openai
+python-dotenv
+requests
+google-api-python-client #(https://developers.google.com/custom-search/v1/overview)
+# pinecone-client #(https://docs.pinecone.io/quickstart/python.html)
+flask
+django
