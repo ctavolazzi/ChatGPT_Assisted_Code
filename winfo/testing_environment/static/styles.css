@@ -1,0 +1,34 @@
+body {
+  background-color: #0b0c10;
+  color: #45a29e;
+  font-family: 'Courier New', monospace;
+}
+#chatbox {
+  border: 1px solid #45a29e;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+form {
+  display: flex;
+  gap: 10px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #45a29e;
+  background-color: #1f2833;
+  color: #45a29e;
+}
+button {
+  padding: 5px 10px;
+  border: 1px solid #45a29e;
+  background-color: #1f2833;
+  color: #45a29e;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a29e;
+  color: #0b0c10;
+}

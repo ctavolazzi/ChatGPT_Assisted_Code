@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winfo Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#chat-form").on("submit", function (event) {
+                event.preventDefault();
+                const userInput = $("#user-input").val().trim();
+                if (userInput) {
+                    // Display user input immediately
+                    $("#chat-history").append("<p id='user-message'><b>You:</b> " + userInput + "</p>");
+                    $("#user-input").val("");
+
+                    // Send user input to server and display chatbot's response when received
+                    $.post("/chat", { user_input: userInput }, function (data) {
+                        $("#chat-history").append("<p><b>Assistant:</b> " + data.assistant_reply + "</p>");
+                        updateScroll();
+                    });
+                }
+            });
+        });
+
+        // Function to scroll the chat history to the bottom
+        function updateScroll() {
+            const chatHistory = document.getElementById("chat-history");
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+    </script>
+</head>
+<body>
+    <div id="chat-history" style="border: 1px solid #ccc; padding: 20px; max-width: 600px; margin: 0 auto; height: 400px; overflow-y: scroll;">
+        {% for message in chat_history %}
+            <p><b>{{ message.role.capitalize() }}:</b> {{ message.content }}</p>
+        {% endfor %}
+    </div>
+    <form id="chat-form" style="max-width: 600px; margin: 10px auto;">
+        <input type="text" id="user-input" placeholder="Type your message..." style="width: 100%; padding: 10px;">
+        <button type="submit" style="display: block; width: 100%; padding: 10px;">Send</button>
+    </form>
+</body>
+</html>
